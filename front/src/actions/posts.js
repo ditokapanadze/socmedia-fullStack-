@@ -1,5 +1,4 @@
 import * as api from "../api";
-import axios from "axios";
 
 export const getPosts = () => async (dispatch) => {
   try {
@@ -7,7 +6,7 @@ export const getPosts = () => async (dispatch) => {
 
     dispatch({ type: "FETCH_ALL", payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 export const createPost = (post) => async (dispatch) => {
@@ -19,11 +18,20 @@ export const createPost = (post) => async (dispatch) => {
   }
 };
 
-export const updatePost = (id, post) => async (dispatch) => {
+export const updatePost = (id, updatedPost) => async (dispatch) => {
   try {
-    const { data } = await api.updatePost(id, post);
+    const { data } = await api.updatePost(id, updatedPost);
     dispatch({ type: "UPDATE", payload: data });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
+  }
+};
+
+export const deletePost = (id) => async (dispatch) => {
+  try {
+    await api.deletePost(id);
+    dispatch({ type: "DELETE", payload: id });
+  } catch (error) {
+    console.log(error);
   }
 };
