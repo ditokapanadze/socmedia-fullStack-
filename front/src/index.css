@@ -17,6 +17,8 @@ body {
   border-style: none;
   cursor: pointer;
 }
-.MuiPaper-root {
-  margin: 10px;
-}
+
+/* background-color: aqua;
+  display: flex;
+  flex-direction: column;
+} */

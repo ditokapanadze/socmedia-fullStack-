@@ -14,8 +14,7 @@ app.get("/", (req, res) => {
   res.send("Hello to  socmedia API");
 });
 app.use("/posts", postRoutes);
-const CONNECTION_URL =
-  "mongodb+srv://socmedia:digomi@cluster0.pn8hl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5001;
 
 mongoose
