@@ -17,3 +17,6 @@ body {
   border-style: none;
   cursor: pointer;
 }
+.MuiPaper-root {
+  margin: 10px;
+}
