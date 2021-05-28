@@ -41,7 +41,7 @@ function Form({ currentId, setCurrentId }) {
       creator: "",
       title: "",
       message: "",
-      tags: "",
+      tags: "#",
       selectedFile: "",
     });
   };
@@ -91,7 +91,7 @@ function Form({ currentId, setCurrentId }) {
           variant="outlined"
           label="Tags (coma separated)"
           fullWidth
-          value={`#${postData.tags}`}
+          value={postData.tags}
           onChange={(e) =>
             setPostData({ ...postData, tags: e.target.value.split(",") })
           }
