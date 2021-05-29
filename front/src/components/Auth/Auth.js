@@ -15,21 +15,45 @@ import LockOutlinedIcon from "@material-ui/icons/LockOpenOutlined";
 import Input from "./Input";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { signin, signup } from "../../actions/auth";
 function Auth() {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const HandleSubmit = () => {};
+
   const [isSignup, setIsSignup] = useState(false);
   let history = useHistory();
   const [showPassword, setShowPassword] = useState(false);
-  const posts = useSelector((state) => console.log(state.posts));
-  const handleChange = () => {};
+
+  const initialState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  };
+  const [fomrData, setFormData] = useState(initialState);
+
+  const handleChange = (e) => {
+    setFormData({ ...fomrData, [e.target.name]: e.target.value });
+  };
+
   const handleShowPassword = () => {
     setShowPassword((prevState) => !prevState);
   };
-  const switchMode = () => {
+
+  const switchMode = (e) => {
+    e.preventDefault();
     setIsSignup(!isSignup);
     setShowPassword(false);
+  };
+
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    if (isSignup) {
+      dispatch(signup(fomrData, history));
+    } else {
+      dispatch(signin(fomrData, history));
+    }
   };
 
   const googleSuccess = async (res) => {

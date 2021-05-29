@@ -13,6 +13,8 @@ import Home from "./components/home/Home";
 import Auth from "./components/Auth/Auth";
 
 function App() {
+  console.log();
+
   const classes = useStyles();
   return (
     <Router>
