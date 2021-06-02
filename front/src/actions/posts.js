@@ -5,6 +5,7 @@ import {
   CREATE,
   DELETE,
   LIKE,
+  FETCH_BY_SEARCH,
 } from "../constants/actionTypes";
 
 export const getPosts = () => async (dispatch) => {
@@ -48,6 +49,19 @@ export const likePost = (id) => async (dispatch) => {
   try {
     const { data } = await api.likePost(id);
     dispatch({ type: LIKE, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getPostsBySearch = (searchQuery) => async (dispatch) => {
+  try {
+    const {
+      // ბექიდან რო მოდის მონაცემები კიდე data-შია და ამიტო გვინდა ორჯერ გეკონსტრუქცია
+      data: { data },
+    } = await api.fetchPostsBySearch(searchQuery);
+    dispatch({ type: FETCH_BY_SEARCH, payload: data });
+    console.log(data);
   } catch (error) {
     console.log(error);
   }

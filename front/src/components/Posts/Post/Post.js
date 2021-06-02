@@ -66,8 +66,8 @@ function Post({ post, setCurrentId }) {
         </Typography>
       </div>
       <div className={classes.overlay2}>
-        {(user.result.googleId === post.creator ||
-          user.result._id === post.creator) && (
+        {(user?.result.googleId === post.creator ||
+          user?.result._id === post.creator) && (
           <button
             className="edit__btn"
             style={{ color: "white" }}
@@ -105,8 +105,8 @@ function Post({ post, setCurrentId }) {
         >
           <Likes />
         </Button>
-        {(user.result.googleId === post.creator ||
-          user.result._id === post.creator) && (
+        {(user?.result.googleId === post.creator ||
+          user?.result._id === post.creator) && (
           <Button
             size="small"
             color="primary"

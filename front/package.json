@@ -6,6 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -13,6 +14,7 @@
     "immer": "^9.0.2",
     "jwt-decode": "^3.1.2",
     "ls": "^0.2.1",
+    "material-ui-chip-input": "^1.1.0",
     "moment": "^2.29.1",
     "npm": "^7.14.0",
     "react": "^17.0.2",
@@ -52,6 +54,7 @@
     ]
   },
   "devDependencies": {
-    "react-scripts": "^1.1.5"
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.2",
+    "react-scripts": "^4.0.1"
   }
 }
