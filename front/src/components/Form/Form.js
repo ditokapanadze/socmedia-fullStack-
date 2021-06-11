@@ -4,6 +4,7 @@ import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { createPost, updatePost } from "../../actions/posts";
+import { useHistory } from "react-router-dom";
 
 function Form({ currentId, setCurrentId }) {
   const [postData, setPostData] = useState({
@@ -13,7 +14,7 @@ function Form({ currentId, setCurrentId }) {
     selectedFile: "",
   });
   const user = JSON.parse(localStorage.getItem("profile"));
-
+  let history = useHistory();
   const post = useSelector((state) =>
     currentId ? state.posts.find((p) => p._id === currentId) : null
   );
@@ -54,6 +55,7 @@ function Form({ currentId, setCurrentId }) {
       dispatch(updatePost(currentId, { ...postData, name: user.result.name }));
     } else {
       dispatch(createPost({ ...postData, name: user.result.name }));
+      history.push("/");
     }
     clear();
   };
@@ -73,7 +75,7 @@ function Form({ currentId, setCurrentId }) {
     setPostData({
       title: "",
       message: "",
-      tags: "#",
+      tags: "",
       selectedFile: "",
     });
   };
