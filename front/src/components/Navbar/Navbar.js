@@ -35,7 +35,7 @@ function Navbar() {
     dispatch({ type: "LOGOUT" });
     history.push("/");
   };
-  console.log("test2");
+
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
       <div className={classes.brandContainer}>

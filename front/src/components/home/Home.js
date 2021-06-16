@@ -38,9 +38,7 @@ function Home() {
   const [tags, setTags] = useState([]);
 
   const searchPost = () => {
-    console.log("cv");
     if (search.trim() || tags) {
-      console.log(tags.join(","));
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
       history.push(
         `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
@@ -62,7 +60,7 @@ function Home() {
   const handleDelete = (tagToDelete) => {
     setTags(tags.filter((tag) => tag !== tagToDelete));
   };
-  console.log(tags);
+
   return (
     <Grow in>
       <Container maxWidth="xl">
@@ -85,7 +83,7 @@ function Home() {
               <TextField
                 name="search"
                 variant="outlined"
-                label="Search Memories"
+                label="Search Memories By Title"
                 fullWidth
                 onKeyPress={handleKeyPress}
                 value={search}
